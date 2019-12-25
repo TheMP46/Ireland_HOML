@@ -5,6 +5,7 @@ https://themp46.github.io/Ireland_HOML/
 ## Applying Hands-On Machine Learning to Irish Power Market
 <br>
 <br>
+
 ![Image of Ireland](https://upload.wikimedia.org/wikipedia/commons/7/74/Ireland_%28MODIS%29.jpg)
 
 
