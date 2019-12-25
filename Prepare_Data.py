@@ -1,19 +1,8 @@
-# Sources:
-# https://github.com/Open-Power-System-Data/time_series/blob/2019-05-15/main.ipynb
-# 
-# https://open-power-system-data.org/
-# 
-# Time series description:
-# https://data.open-power-system-data.org/time_series/
-
-# check for more data:
-# https://toolbox.google.com/datasetsearch
-
 import pandas as pd
 import numpy as np
 
 
-# # Main data (Price, onshore, load)
+## Main data (Price, onshore, load)
 data = pd.read_csv("./time_series_30min_singleindex.csv")
 
 columns = data.columns[data.columns.str.contains('IE_')].to_list()
@@ -49,14 +38,10 @@ df_complete = df_complete.rename(columns=column_names)
 df_complete[['price_da_sem','onshore_sem', 'load_forecast_sem', 'load_sem', 'onshore', 'load_forecast', 'load',  'load_gb', 'wind_gb', 'solar_gb']]
 df = df_complete[['price_da_sem','onshore_sem', 'load_forecast_sem', 'load_sem', 'load_gb', 'wind_gb', 'solar_gb']]
 
-df.head()
-
 #df.plot(figsize=(16,9), colors=['black','lightskyblue', 'green', 'red'])
 
-#The Integrated Single Electricity Market (ISEM) is the wholesale electricity market for the island of Ireland.
-#The ISEM went live on 01.10.2018 and replaced the Single Electricity Market.
 
-# # Weather Data
+## Weather Data
 
 weather_data = pd.read_csv("./weather_data.csv")
 
@@ -74,7 +59,6 @@ column_names_weather={
     'IE_radiation_diffuse_horizontal':'rad_diffuse'
 }
 
-
 df_weather_data = df_weather_data.rename(columns=column_names_weather)
 
 df = df.resample("60min").mean()
@@ -83,10 +67,8 @@ df[df.index.isin(df.index.intersection(df_weather_data.index))]
 result = pd.concat([df[df.index.isin(df.index.intersection(df_weather_data.index))], df_weather_data[df_weather_data.index.isin(df.index.intersection(df_weather_data.index))]], axis=1, sort=False)
 
 result.to_pickle("./data.pkl")
-
 #pd.read_pickle("./data.pkl")
 
-# # Heat Demand
-
+## Heat Demand
 # -> not in time range 2015-2016
 
