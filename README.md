@@ -1,6 +1,12 @@
 # Ireland_HOML
 https://themp46.github.io/Ireland_HOML/
 ## Applying Hands-On Machine Learning to Irish Power Market
+
+Prepare_Data.py : python file of Jupyter Notebook Ireland.ipynb
+model.py : python file of Jupyter Notebook Ireland ML-simplified-final.ipynb
+requirements.txt: defines python packages needed to run via mybinder.org
+config.yml: defines theme for web page themp46.github.io/Ireland_HOML/
+
 ![Image of Ireland](https://upload.wikimedia.org/wikipedia/commons/7/74/Ireland_%28MODIS%29.jpg)
 
 # Sources:
